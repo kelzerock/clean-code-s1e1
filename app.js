@@ -68,6 +68,7 @@ var addTask=function(){
     if (!taskInput.value) return;
     var listItem=createNewTaskElement(taskInput.value);
     listItem.classList.add('li')
+    listItem.classList.add('incomplete-menu__item')
 
     //Append listItem to incompleteTaskHolder
     incompleteTaskHolder.appendChild(listItem);
@@ -125,6 +126,8 @@ var taskCompleted=function(){
 
     //Append the task list item to the #completed-tasks
     var listItem=this.parentNode;
+    listItem.classList.remove('incomplete-menu__item')
+    listItem.classList.add('completed-menu__item')
     completedTasksHolder.appendChild(listItem);
     bindTaskEvents(listItem, taskIncomplete);
 
